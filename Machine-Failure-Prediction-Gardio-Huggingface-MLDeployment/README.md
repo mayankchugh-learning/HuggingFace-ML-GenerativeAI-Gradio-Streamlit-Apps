@@ -1,5 +1,6 @@
 # Machine-Failure-Gardio-Huggingface-MLDeployment
 
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
 ## How to run? 
 ### STEP 01- Create a conda environment after opening the repository
