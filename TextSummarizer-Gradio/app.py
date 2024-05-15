@@ -11,12 +11,6 @@ model_path = ("../Models/models--sshleifer--distilbart-cnn-12-6/snapshots/a4f8f3
 text_summary = pipeline("summarization", model=model_path,
                         torch_dtype=torch.bfloat16)
 
-# model_path = ("../Models/models--sshleifer--distilbart-cnn-12-6/snapshots"
-#               "/a4f8f3ea906ed274767e9906dbaede7531d660ff")
-# text_summary = pipeline("summarization", model=model_path,
-#                 torch_dtype=torch.bfloat16)
-
-
 
 # text='''Elon Reeve Musk (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a businessman and investor.
 # He is the founder, chairman, CEO, and CTO of SpaceX; angel investor, CEO, product architect,
@@ -37,5 +31,6 @@ demo = gr.Interface(fn=summary,
                     inputs=[gr.Textbox(label="Input text to summarize",lines=6)],
                     outputs=[gr.Textbox(label="Summarized text",lines=4)],
                     title="@IT AI Enthusiast (https://www.youtube.com/@itaienthusiast/) - Project 1: Text Summarizer",
-                    description="THIS APPLICATION WILL BE USED TO SUMMARIZE THE TEXT")
+                    description="THIS APPLICATION WILL BE USED TO SUMMARIZE THE TEXT",
+                    concurrency_limit=16)
 demo.launch()
