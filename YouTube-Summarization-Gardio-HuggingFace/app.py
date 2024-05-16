@@ -1,35 +1,48 @@
-import torch
+import pytube
+from youtube_transcript_api import YouTubeTranscriptApi
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import gradio as gr
 
-# Use a pipeline as a high-level helper
-from transformers import pipeline
+# Load the Hugging Face model and tokenizer
+model_name = "sshleifer/distilbart-cnn-12-6"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-#text_summary = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6", torch_dtype=torch.bfloat16)
+def get_transcript(youtube_url):
+    # Extract the video ID from the YouTube URL
+    video_id = pytube.extract.video_id(youtube_url)
 
-model_path = ("../Models/models--sshleifer--distilbart-cnn-12-6/snapshots/a4f8f3ea906ed274767e9906dbaede7531d660ff")
+    # Get the transcript using the YouTube Transcript API
+    try:
+        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+    except Exception as e:
+        return f"Error retrieving transcript: {str(e)}"
 
-text_summary = pipeline("summarization", model=model_path,
-                        torch_dtype=torch.bfloat16)
+    # Join the transcript segments into a single string
+    transcript_text = " ".join([segment["text"] for segment in transcript_list])
 
+    # Summarize the transcript text using the Hugging Face model
+    inputs = tokenizer(transcript_text, return_tensors="pt", truncation=True, padding="longest")
+    summary_ids = model.generate(inputs["input_ids"], num_beams=4, max_length=100, early_stopping=True)
+    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
-# text='''Elon Reeve Musk (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a businessman and investor.
-# He is the founder, chairman, CEO, and CTO of SpaceX; angel investor, CEO, product architect,
-# and former chairman of Tesla, Inc.; owner, executive chairman, and CTO of X Corp.;
-# founder of the Boring Company and xAI; co-founder of Neuralink and OpenAI; and president
-# of the Musk Foundation. He is one of the wealthiest people in the world; as of April 2024,
-# Forbes estimates his net worth to be $178 billion.[4]'''
-# print(text_summary(text));
+    return summary
 
-def summary (input):
-    output = text_summary(input)
-    return output[0]['summary_text']
+# Create a Gradio interface
+iface = gr.Interface(
+    fn=get_transcript,
+    inputs="text",
+    outputs="text",
+    title="@IT AI Enthusiast (Mayank Chugh) (https://www.youtube.com/@itaienthusiast/) - Project 2: YouTube Video Transcript Generator",
+    description="Enter a YouTube URL to generate and summarize the video transcript.",
+    examples=['https://www.youtube.com/watch?v=0vK7AwUpRvY',
+                'https://www.youtube.com/watch?v=tQb7bumjkIM',
+                'https://www.youtube.com/watch?v=GWJYxR2Hy3g&t',
+                'https://www.youtube.com/watch?v=Bokfvs4ht4k',
+                'https://www.youtube.com/watch?v=YSMWN8VpY6A',
+                'https://www.youtube.com/watch?v=HFYv-rk4v9Y'],
+    concurrency_limit=8
+)
 
-gr.close_all()
-
-# demo = gr.Interface(fn=summary, inputs="text",outputs="text")
-demo = gr.Interface(fn=summary,
-                    inputs=[gr.Textbox(label="Input text to summarize",lines=6)],
-                    outputs=[gr.Textbox(label="Summarized text",lines=4)],
-                    title="@IT AI Enthusiast (https://www.youtube.com/@itaienthusiast/) - Project 1: Text Summarizer",
-                    description="THIS APPLICATION WILL BE USED TO SUMMARIZE THE TEXT")
-demo.launch()
+# Launch the Gradio interface
+iface.launch(share=False)
