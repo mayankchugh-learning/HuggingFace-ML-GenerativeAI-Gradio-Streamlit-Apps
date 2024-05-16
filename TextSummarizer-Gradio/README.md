@@ -30,3 +30,8 @@ n-12-6 /Users/mayankchugh/gitRepos/mayankchugh.learning/HuggingFace-ML-Generativ
 [best text blog]
 (https://www.forbes.com/advisor/business/software/best-blogging-platforms/)
 ```
+
+### Prompt
+```bash
+Write a python code text summarisation as user input text provide a summarization of as output using model "sshleifer/distilbart-cnn-12-6" and use Gradio frontend application
+```

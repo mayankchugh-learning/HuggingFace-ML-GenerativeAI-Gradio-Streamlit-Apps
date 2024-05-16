@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 insuranceCostEnv
 textsummarizationenv
+sentimentanalysisenv
 flagged
 .DS_Store
 Models
