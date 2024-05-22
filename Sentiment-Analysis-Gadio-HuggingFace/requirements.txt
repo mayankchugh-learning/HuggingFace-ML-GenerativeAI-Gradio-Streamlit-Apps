@@ -2,6 +2,5 @@ transformers
 torch
 gradio
 pandas
-TextBlob
-openpyxl
 matplotlib
+openpyxl

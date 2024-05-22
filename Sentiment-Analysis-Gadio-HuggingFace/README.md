@@ -45,7 +45,14 @@ I need an excel contains one column as "Review". this column should contain atle
 
 ### Prompt to create code
 ```bash
-Write a Python code that reads the Excel file based on the Excel file path provided as input for the function. the file has reviews; it should call a function get sentiment and return me the data frame that contains both reviews as well as corresponding sentiment. Also, Check if the 'Review' column is in the Dataframe - raise an error if it does not exist. 
+Write a Python code that reads the Excel file based on the Excel file path provided as input for the function. the file has reviews; it should call a function get sentiment and return me the data frame that contains both reviews as well as corresponding sentiment. Also, Check if the 'Review' column is in the Dataframe - raise an error if it does not exist. add gradio as frontend for user to upload file
 ```
+
+### Prompt to add plot chart to be added
+
+```bash
+add a Python function which takes a dataframe as an input and contains 2 columns, (Review & Sentiment - Positive, Negative) and it will return an object of bar chart that can be passed to the Gradio tool to plot a chart in gradio UI
+```
+
 
 [Gradio documentation link](https://www.gradio.app/docs/gradio/file)

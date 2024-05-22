@@ -1,0 +1,18 @@
+transformers>=4.36.2
+diffusers>=0.25.0
+ctransformers[cuda]>=0.2.24
+Pillow>=9.3.0
+gradio
+streamlit>=1.29.0
+accelerate>=0.25.0
+pypdf
+peft >= 0.6.0
+
+
+matplotlib
+pandas
+openpyxl
+
+# Install pytorch for cpu "torch"
+# or get the latest gpu version from: https://pytorch.org/get-started/locally/
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
