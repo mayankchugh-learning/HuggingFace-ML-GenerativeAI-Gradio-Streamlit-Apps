@@ -8,7 +8,7 @@ from textblob import TextBlob
 
 # analyser = pipeline("text-classification", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
 
-model_path = ("..//Models/models--distilbert--distilbert-base-uncased-finetuned-sst-2-english/snapshots/714eb0fa89d2f80546fda750413ed43d93601a13")
+model_path = ("../Models/models--distilbert--distilbert-base-uncased-finetuned-sst-2-english/snapshots/714eb0fa89d2f80546fda750413ed43d93601a13")
 
 analyser = pipeline("text-classification", model=model_path)
 

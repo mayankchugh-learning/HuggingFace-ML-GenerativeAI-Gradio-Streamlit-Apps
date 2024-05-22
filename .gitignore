@@ -161,6 +161,7 @@ cython_debug/
 insuranceCostEnv
 textsummarizationenv
 sentimentanalysisenv
+multilangauaeTranslatorEnv
 flagged
 .DS_Store
 Models
