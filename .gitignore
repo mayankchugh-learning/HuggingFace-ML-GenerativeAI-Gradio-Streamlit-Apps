@@ -162,6 +162,7 @@ insuranceCostEnv
 textsummarizationenv
 sentimentanalysisenv
 multilangauaeTranslatorEnv
+objdetectionenv
 flagged
 .DS_Store
 Models
