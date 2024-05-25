@@ -2,4 +2,3 @@ gradio
 timm
 Image
 transformers
-cv2
