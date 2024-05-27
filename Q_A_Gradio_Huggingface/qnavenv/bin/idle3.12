@@ -1,5 +1,0 @@
-#!/Users/mayankchugh/gitRepos/mayankchugh.learning/HuggingFace-ML-GenerativeAI-Gradio-Streamlit-Apps/Q_A_Gradio_Huggingface/qnavenv/bin/python3.12
-
-from idlelib.pyshell import main
-if __name__ == '__main__':
-    main()
