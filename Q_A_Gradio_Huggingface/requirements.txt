@@ -1,4 +1,3 @@
 gradio
-timm
-Image
 transformers
+torch
