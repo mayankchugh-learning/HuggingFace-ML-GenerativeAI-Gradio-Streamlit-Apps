@@ -163,7 +163,7 @@ textsummarizationenv
 sentimentanalysisenv
 multilangauaeTranslatorEnv
 objdetectionenv
-qnavenv_
+qnavenv
 flagged
 .DS_Store
 Models
