@@ -1,4 +1,4 @@
-### TextSummarizer
+# Sentiment-Analysis-Gadio-HuggingFace
 
 ### STEPS:
 ## How to run? 
