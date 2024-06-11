@@ -164,6 +164,7 @@ sentimentanalysisenv
 multilangauaeTranslatorEnv
 objdetectionenv
 teslareportvenv
+streamlitknowledgevenv
 qnavenv
 flagged
 .DS_Store
