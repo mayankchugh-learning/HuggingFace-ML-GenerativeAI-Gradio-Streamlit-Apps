@@ -165,6 +165,7 @@ multilangauaeTranslatorEnv
 objdetectionenv
 teslareportvenv
 streamlitknowledgevenv
+companiesreportsvenv
 qnavenv
 flagged
 .DS_Store
