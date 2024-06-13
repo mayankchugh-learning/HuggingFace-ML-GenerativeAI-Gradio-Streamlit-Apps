@@ -6,6 +6,8 @@
 "Leveraging Retrieval-Augmented Generation to Optimize Financial Data Extraction and Analysis"
 "AI-Driven 10-K Report Processing: Improving Financial Analysts' Productivity and Insights"
 
+RAG-investment-recommendation-log
+
 ## Problem Statement:
 
 Finsights Grey Inc. is an innovative financial technology firm that specializes in providing advanced analytics and insights for investment management and financial planning. The company handles an extensive collection of 10-K reports from various industry players, which contain detailed information about financial performance, risk factors, market trends, and strategic initiatives. 🏢 Despite the richness of these documents, Finsights Grey's financial analysts struggle with extracting actionable insights efficiently in a short span due to the manual and labor-intensive nature of the analysis. Going through the document to find the exact information needed at the moment takes too long. This bottleneck hampers the company's ability to deliver timely and accurate recommendations to its clients. To overcome these challenges, Finsights Grey Inc. aims to implement a Retrieval-Augmented Generation (RAG) model to automate the extraction, summarization, and analysis of information from the 10-K reports, thereby enhancing the accuracy and speed of their investment insights. 🚀

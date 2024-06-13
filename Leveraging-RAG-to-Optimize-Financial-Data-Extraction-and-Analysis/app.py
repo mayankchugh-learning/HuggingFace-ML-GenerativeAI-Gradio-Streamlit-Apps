@@ -50,7 +50,7 @@ log_file = Path("logs/") / f"data_{uuid.uuid4()}.json"
 log_folder = log_file.parent
 
 scheduler = CommitScheduler(
-    repo_id="---------",
+    repo_id="RAG-investment-recommendation-log",
     repo_type="dataset",
     folder_path=log_folder,
     path_in_repo="data",
@@ -161,7 +161,7 @@ with gr.Blocks() as demo:
     output = gr.Textbox(label="Output")
 
     submit.click(
-        fn=get_prediction,
+        fn=predict,
         inputs=[question, company],
         outputs=output
     )
