@@ -166,6 +166,7 @@ objdetectionenv
 teslareportvenv
 streamlitknowledgevenv
 companiesreportsvenv
+objdetectionenhancedvenv-1
 qnavenv
 flagged
 .DS_Store
