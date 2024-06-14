@@ -41,12 +41,18 @@ def draw_bounding_boxes(image, object_detections):
     
     return image
 
-raw_image = Image.open("./Files/image copy 2.png")
+def detect_object(image):
+    # raw_image = Image.open(image)
+    output = object_detector(image)
+    processed_image = draw_bounding_boxes(image, output)
+    return processed_image
 
-output = object_detector(raw_image)
+gr.close_all()
 
-# print(output)
-
-processed_image = draw_bounding_boxes(raw_image, output)
-
-processed_image.show()
+demo = gr.Interface(fn=detect_object,
+                    inputs=[gr.Image(label="Select Image", type="pil")],
+                    outputs=[gr.Image(label="Processed Image", type="pil")],
+                    title="@IT AI Enthusiast (https://www.youtube.com/@itaienthusiast/) - Project 6: Object Detector",
+                    description="THIS APPLICATION WILL BE USED TO DETECT OBJECT INSIDE THE PROVIDED INPUT IMGAES",
+                    concurrency_limit=16)
+demo.launch()

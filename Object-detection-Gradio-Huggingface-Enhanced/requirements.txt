@@ -1,4 +1,7 @@
+transformers
+torch
 gradio
 timm
 Image
-transformers
+scipy
+phonemizer
