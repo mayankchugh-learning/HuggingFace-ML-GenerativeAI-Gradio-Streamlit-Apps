@@ -148,28 +148,51 @@ def predict(user_input,company):
 
     return prediction
 
+
+def get_predict(question, company):
+    # Implement your prediction logic here
+    if company == "AWS":
+        # Perform prediction for AWS
+        selectedCompany = "aws"
+    elif company == "IBM":
+        # Perform prediction for IBM
+        selectedCompany = "IBM"
+    elif company == "Google":
+        # Perform prediction for Google
+       selectedCompany = "Google"
+    elif company == "Meta":
+        # Perform prediction for Meta
+        selectedCompany = "meta"
+    elif company == "Microsoft":
+        # Perform prediction for Microsoft
+        selectedCompany = "msft"
+    else:
+        return "Invalid company selected"
+
+    output = predict(question, company)    
+    return output
+
 # Set-up the Gradio UI
 # Add text box and radio button to the interface
 # The radio button is used to select the company 10k report in which the context needs to be retrieved.
 
+# Create the interface
+# For the inputs parameter of Interface provide [textbox,company]
+
 with gr.Blocks() as demo:
     with gr.Row():
+        company = gr.Radio(["AWS", "IBM", "Google", "Meta", "Microsoft"], label="Select a company")
         question = gr.Textbox(label="Enter your question")
-        company = gr.Radio(["aws", "IBM", "google", "meta", "msft"], label="Select a company")
+        
     
     submit = gr.Button("Submit")
     output = gr.Textbox(label="Output")
 
     submit.click(
-        fn=predict,
+        fn=get_predict,
         inputs=[question, company],
         outputs=output
     )
-
-demo.launch()
-# Create the interface
-# For the inputs parameter of Interface provide [textbox,company]
-
 
 demo.queue()
 demo.launch()
