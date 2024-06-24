@@ -74,3 +74,24 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+
+
+### Steps to upload files using Hugging Face CLI:
+Install huggingface CLI - 
+```bash
+pip install -U "huggingface_hub[cli]"
+```
+Upload files - 
+```bash
+huggingface-cli upload repo_name local_path path_in_repo --token=$hf_token --repo-type=space
+```
+export hf_token=<KEY>
+echo $hf_token
+```
+Example: 
+```bash
+huggingface-cli upload username/10kreports ./reports_db ./reports_db/ --token=hf_wPFDRMmQVaflibabflebhtizEFD --repo-type=space
+
+huggingface-cli upload username/mayankchugh-learning ./reports_db ./reports_db/ --token=$hf_token --repo-type=space
+
+```

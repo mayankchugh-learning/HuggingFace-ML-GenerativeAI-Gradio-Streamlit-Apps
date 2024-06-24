@@ -179,12 +179,12 @@ def get_predict(question, company):
 # Create the interface
 # For the inputs parameter of Interface provide [textbox,company]
 
-with gr.Blocks() as demo:
+with gr.Blocks(theme="gradio/seafoam@>=0.0.1,<0.1.0") as demo:
     with gr.Row():
         company = gr.Radio(["AWS", "IBM", "Google", "Meta", "Microsoft"], label="Select a company")
+    with gr.Row():
         question = gr.Textbox(label="Enter your question")
-        
-    
+
     submit = gr.Button("Submit")
     output = gr.Textbox(label="Output")
 
