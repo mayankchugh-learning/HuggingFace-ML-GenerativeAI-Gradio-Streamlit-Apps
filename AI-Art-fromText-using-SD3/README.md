@@ -20,6 +20,9 @@ pip install -r requirements.txt
 ```bash
 Python app.py
 ```
+pip install huggingface-cli 
+huggingface-cli login
+
 
 [Models -> Task -> Image-to-text -> Salesforce/blip-image-captioning-large ](https://huggingface.co/Salesforce/blip-image-captioning-large)
 
