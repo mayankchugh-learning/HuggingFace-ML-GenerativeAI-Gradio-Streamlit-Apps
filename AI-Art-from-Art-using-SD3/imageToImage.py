@@ -10,7 +10,7 @@ from phonemizer.backend.espeak.wrapper import EspeakWrapper
 _ESPEAK_LIBRARY = '/opt/homebrew/Cellar/espeak/1.48.04_1/lib/libespeak.1.1.48.dylib'  #use the Path to the library.
 EspeakWrapper.set_library(_ESPEAK_LIBRARY)
 
-device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+device = torch.device('mps') if torch.cuda.is_available() else torch.device('cpu')
 
 # narrator = pipeline("text-to-speech", model="kakao-enterprise/vits-ljs")
 
@@ -42,12 +42,12 @@ from diffusers import StableDiffusion3Pipeline
 
 def image_generator(prompt):
     # device = "cuda" if torch.cuda.is_available() else "cpu"
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    device = torch.device('mps') if torch.cuda.is_available() else torch.device('cpu')
     pipeline = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", 
-                                                         torch_dtype=torch.float16 if device == "cuda" else torch.float32,
+                                                         torch_dtype=torch.float32 if device == "mps" else torch.float32,
                                                          text_encoder_3=None,
                                                          tokenizer_3 = None)
-    # pipeline.enable_model_cpu_offload()
+    #pipeline.enable_model_cpu_offload()
     pipeline.to(device)
 
     image = pipeline(
