@@ -4,11 +4,11 @@
 ## How to run? 
 ### STEP 01- Create a conda environment after opening the repository
 ```bash
-conda create -p texttoimagevenv python -y
+conda create -p imagetoimagevenv python -y
 ```
 
 ```bash
-source activate ./texttoimagevenv
+source activate ./imagetoimagevenv
 ```
 
 ### STEP 02- install the requirements

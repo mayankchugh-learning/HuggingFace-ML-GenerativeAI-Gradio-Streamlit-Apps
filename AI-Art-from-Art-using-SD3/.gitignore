@@ -171,7 +171,6 @@ imagecaptionvenv
 hallbotvenv
 qnavenv
 texttoimagevenv
-imagetoimagevenv
 flagged
 .DS_Store
 Models
